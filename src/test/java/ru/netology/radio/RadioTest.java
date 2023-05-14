@@ -96,4 +96,19 @@ public class RadioTest {
         radio.decreaseVolume();
         Assertions.assertEquals(0, radio.getVolume());
     }
+    @Test
+    public void nextStation_CurrentStationIsMax_SwitchesToStation0() {
+        Radio radio = new Radio();
+        radio.setCurrentStation(radio.getMaxStation() - 1);
+        radio.nextStation();
+        Assertions.assertEquals(0, radio.getCurrentStation());
+    }
+
+    @Test
+    public void prevStation_CurrentStationIs0_SwitchesToMaxStation() {
+        Radio radio = new Radio();
+        radio.setCurrentStation(0);
+        radio.prevStation();
+        Assertions.assertEquals(radio.getMaxStation() - 1, radio.getCurrentStation());
+    }
 }
