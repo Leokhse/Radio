@@ -12,6 +12,9 @@ public class Radio {
         if (station >= 0 && station <= 9) {
             currentStation = station;
         }
+        else {
+            currentStation = 0; // Переключение на первую станцию
+        }
     }
 
     public void nextStation() {
