@@ -3,14 +3,17 @@ package ru.netology.radio;
 public class Radio {
     private int currentStation;
     private int volume;
-    private int maxStation;
+    private final int maxStation;
+    private final int maxVolume;
 
     public Radio() {
-        this.maxStation = 10; // по умолчанию — 10
+        this.maxStation = 10; // значение по умолчанию
+        this.maxVolume = 100; // значение по умолчанию
     }
 
-    public Radio(int maxStation) {
+    public Radio(int maxStation, int maxVolume) {
         this.maxStation = maxStation;
+        this.maxVolume = maxVolume;
     }
 
     public int getCurrentStation() {
@@ -20,6 +23,8 @@ public class Radio {
     public void setCurrentStation(int station) {
         if (station >= 0 && station < maxStation) {
             currentStation = station;
+        } else {
+            currentStation = 0; // Переключение на первую станцию
         }
     }
 
@@ -44,13 +49,13 @@ public class Radio {
     }
 
     public void setVolume(int volume) {
-        if (volume >= 0 && volume <= 100) {
+        if (volume >= 0 && volume <= maxVolume) {
             this.volume = volume;
         }
     }
 
     public void increaseVolume() {
-        if (volume < 100) {
+        if (volume < maxVolume) {
             volume++;
         }
     }
@@ -63,5 +68,9 @@ public class Radio {
 
     public int getMaxStation() {
         return maxStation;
+    }
+
+    public int getMaxVolume() {
+        return maxVolume;
     }
 }
