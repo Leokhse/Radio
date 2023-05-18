@@ -4,17 +4,14 @@ public class Radio {
     private int currentStation;
     private int volume;
 
-    public int getCurrentStation() {
-        return currentStation;
-    }
-
     public void setCurrentStation(int station) {
         if (station >= 0 && station <= 9) {
             currentStation = station;
         }
-        else {
-            currentStation = 0; // Переключение на первую станцию
-        }
+    }
+
+    public int getCurrentStation() {
+        return currentStation;
     }
 
     public void nextStation() {
@@ -33,14 +30,20 @@ public class Radio {
         }
     }
 
-    public int getVolume() {
-        return volume;
+    public void setStation(int station) {
+        if (station >= 0 && station <= 9) {
+            currentStation = station;
+        }
     }
 
     public void setVolume(int volume) {
         if (volume >= 0 && volume <= 100) {
             this.volume = volume;
         }
+    }
+
+    public int getVolume() {
+        return volume;
     }
 
     public void increaseVolume() {

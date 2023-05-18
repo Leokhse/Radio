@@ -191,4 +191,74 @@ public class RadioTest {
         radio.setCurrentStation(10);
         Assertions.assertEquals(0, radio.getCurrentStation());
     }
+    @Test
+    void setStation_shouldSetCurrentStationIfNumberIsWithinRange() {
+        Radio radio = new Radio();
+
+        radio.setStation(5);
+        Assertions.assertEquals(5, radio.getCurrentStation());
+
+        radio.setStation(0);
+        Assertions.assertEquals(0, radio.getCurrentStation());
+
+        radio.setStation(9);
+        Assertions.assertEquals(9, radio.getCurrentStation());
+    }
+
+    @Test
+    void setStation_shouldNotSetCurrentStationIfNumberIsLessThanZero() {
+        Radio radio = new Radio();
+
+        radio.setStation(-1);
+        Assertions.assertNotEquals(-1, radio.getCurrentStation());
+
+        radio.setStation(-10);
+        Assertions.assertNotEquals(-10, radio.getCurrentStation());
+    }
+
+    @Test
+    void setStation_shouldNotSetCurrentStationIfNumberIsGreaterThanNine() {
+        Radio radio = new Radio();
+
+        radio.setStation(10);
+        Assertions.assertNotEquals(10, radio.getCurrentStation());
+
+        radio.setStation(15);
+        Assertions.assertNotEquals(15, radio.getCurrentStation());
+    }
+    @Test
+    void setVolume_shouldSetVolumeIfValueIsWithinRange() {
+        Radio radio = new Radio();
+
+        radio.setVolume(50);
+        Assertions.assertEquals(50, radio.getVolume());
+
+        radio.setVolume(0);
+        Assertions.assertEquals(0, radio.getVolume());
+
+        radio.setVolume(100);
+        Assertions.assertEquals(100, radio.getVolume());
+    }
+
+    @Test
+    void setVolume_shouldNotSetVolumeIfValueIsLessThanZero() {
+        Radio radio = new Radio();
+
+        radio.setVolume(-1);
+        Assertions.assertNotEquals(-1, radio.getVolume());
+
+        radio.setVolume(-10);
+        Assertions.assertNotEquals(-10, radio.getVolume());
+    }
+
+    @Test
+    void setVolume_shouldNotSetVolumeIfValueIsGreaterThanHundred() {
+        Radio radio = new Radio();
+
+        radio.setVolume(101);
+        Assertions.assertNotEquals(101, radio.getVolume());
+
+        radio.setVolume(200);
+        Assertions.assertNotEquals(200, radio.getVolume());
+    }
 }
