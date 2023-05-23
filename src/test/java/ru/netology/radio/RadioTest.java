@@ -200,5 +200,33 @@ public class RadioTest {
         radio.setVolume(101);
         Assertions.assertEquals(0, radio.getVolume());
     }
+    @Test
+    public void radioConstructor_ValidStation_SetsCurrentStation() {
+        int station = 5;
+        Radio radio = new Radio(station);
+        Assertions.assertEquals(station, radio.getCurrentStation());
+    }
+
+    @Test
+    public void radioConstructor_InvalidStation_SetsCurrentStationToZero() {
+        int invalidStation = 15;
+        Radio radio = new Radio(invalidStation);
+        Assertions.assertEquals(0, radio.getCurrentStation());
+    }
+
+    @Test
+    public void radioConstructor_ValidStationAndDefaultVolume_SetsVolumeToZero() {
+        int station = 5;
+        Radio radio = new Radio(station);
+        Assertions.assertEquals(0, radio.getVolume());
+    }
+
+    @Test
+    public void radioConstructor_InvalidStationAndDefaultVolume_SetsCurrentStationToZeroAndVolumeToZero() {
+        int invalidStation = 15;
+        Radio radio = new Radio(invalidStation);
+        Assertions.assertEquals(0, radio.getCurrentStation());
+        Assertions.assertEquals(0, radio.getVolume());
+    }
 
 }

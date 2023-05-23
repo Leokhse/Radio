@@ -8,14 +8,14 @@ public class Radio {
 
 
     public Radio() {
-        this.maxStation = 10; // по умолчанию 10 станций
+        this.maxStation = 10;
     }
 
 
     public Radio(int station) {
-        this.maxStation = 10; // по умолчанию 10 станций
+        this.maxStation = 10;
         setCurrentStation(station);
-        this.volume = 0; // Установка начальной громкости на 0
+        this.volume = 0;
     }
 
 
