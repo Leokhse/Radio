@@ -69,14 +69,6 @@ public class RadioTest {
 
 
     @Test
-    public void setStation_InvalidStation_DoesNotChangeCurrentStation() {
-        Radio radio = new Radio();
-        radio.setStation(15);
-        Assertions.assertEquals(0, radio.getCurrentStation());
-    }
-
-
-    @Test
     public void setVolume_ValidVolume_SetsVolume() {
         Radio radio = new Radio();
         radio.setVolume(50);
@@ -227,6 +219,19 @@ public class RadioTest {
         Radio radio = new Radio(invalidStation);
         Assertions.assertEquals(0, radio.getCurrentStation());
         Assertions.assertEquals(0, radio.getVolume());
+    }
+    @Test
+    public void setStation_InvalidStation_DoesNotChangeCurrentStation() {
+        Radio radio = new Radio();
+        radio.setStation(15);
+        Assertions.assertEquals(0, radio.getCurrentStation());
+    }
+
+    @Test
+    public void setStation_InvalidStationWithMaxStation20_DoesNotChangeCurrentStation() {
+        Radio radio = new Radio(20);
+        radio.setStation(15);
+        Assertions.assertEquals(20, radio.getCurrentStation());
     }
 
 }
