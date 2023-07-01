@@ -227,11 +227,4 @@ public class RadioTest {
         Assertions.assertEquals(0, radio.getCurrentStation());
     }
 
-    @Test
-    public void setStation_InvalidStationWithMaxStation20_DoesNotChangeCurrentStation() {
-        Radio radio = new Radio(20);
-        radio.setStation(15);
-        Assertions.assertEquals(20, radio.getCurrentStation());
-    }
-
 }
